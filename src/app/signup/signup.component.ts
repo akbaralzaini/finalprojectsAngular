@@ -19,11 +19,11 @@ export class SignupComponent implements OnInit {
 
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
-
+ 
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
+  onSubmit(): void { 
     const { username, password,firstName, lastName, agency,details, mobileNumber } = this.form;
 
     this.authService.register(username, firstName,lastName,mobileNumber,['admin'] , password).subscribe(

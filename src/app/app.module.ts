@@ -5,14 +5,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { DashboardComponent } from './content/dashboard/dashboard.component';
-import { AgencyComponent } from './content/agency/agency.component';
-import { BusesComponent } from './content/buses/buses.component';
-import { TripsComponent } from './content/trips/trips.component';
-import { ProfileComponent } from './content/profile/profile.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { SidebarComponent } from './components/templates/sidebar/sidebar.component';
+import { DashboardComponent } from './components/content/dashboard/dashboard.component';
+import { AgencyComponent } from './components/content/agency/agency.component';
+import { BusesComponent } from './components/content/buses/buses.component';
+import { TripsComponent } from './components/content/trips/trips.component';
+import { ProfileComponent } from './components/content/profile/profile.component';
+import { TemplatesComponent } from './components/templates/templates.component';
+import { FooterComponent } from './components/templates/footer/footer.component';
+import { NavigationComponent } from './components/templates/navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { ProfileComponent } from './content/profile/profile.component';
     AgencyComponent,
     BusesComponent,
     TripsComponent,
-    ProfileComponent
+    ProfileComponent,
+    TemplatesComponent,
+    FooterComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

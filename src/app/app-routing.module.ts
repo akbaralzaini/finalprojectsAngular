@@ -1,20 +1,20 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { DashboardComponent } from './content/dashboard/dashboard.component';
-import { AgencyComponent } from './content/agency/agency.component';
-import { BusesComponent } from './content/buses/buses.component';
-import { TripsComponent } from './content/trips/trips.component';
-import { ProfileComponent } from './content/profile/profile.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { DashboardComponent } from './components/content/dashboard/dashboard.component';
+import { AgencyComponent } from './components/content/agency/agency.component';
+import { BusesComponent } from './components/content/buses/buses.component';
+import { TripsComponent } from './components/content/trips/trips.component';
+import { ProfileComponent } from './components/content/profile/profile.component';
+import { TemplatesComponent } from './components/templates/templates.component';
 
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: '', component: SidebarComponent,
+  { path: '', component: TemplatesComponent,
     children:[
       {
         path: "dashboard",

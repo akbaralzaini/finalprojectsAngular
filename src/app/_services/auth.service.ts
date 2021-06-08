@@ -32,9 +32,8 @@ export class AuthService {
     }, httpOptions);
   }
 
-  registerAgency(user_id : number,name: string, details:string,code:string  ): Observable<any>{
+  registerAgency(name: string, details:string,code:string  ): Observable<any>{
     return this.http.post('http://localhost:8080/api/v1/agency/',{
-      user_id,
       name,
       details,
       code

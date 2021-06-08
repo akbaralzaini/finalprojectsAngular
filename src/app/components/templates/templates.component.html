@@ -1,22 +1,8 @@
 
-<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="/assets/css/style.css">
-        
+ 
 <nav class="pcoded-navbar menupos-fixed menu-light ">
-	<div class="navbar-wrapper  ">
-		<div class="navbar-content scroll-div ">
-			<ul class="nav pcoded-inner-navbar "> 
-				<li class="nav-item pcoded-menu-caption">
-					<label>Navigation</label>
-				</li>
-                <li class="nav-item" [routerLinkActive]="['active']"><a [routerLink]="['/dashboard']" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a></li>
-                <li class="nav-item" [routerLinkActive]="['active']"><a [routerLink]="['/agency']" class="nav-link "><span class="pcoded-micon"><i class="feather icon-briefcase"></i></span><span class="pcoded-mtext">Agency</span></a></li>
-                <li class="nav-item" [routerLinkActive]="['active']"><a [routerLink]="['/buses']" class="nav-link "><span class="pcoded-micon"><i class="fas fa-bus-alt"></i></span><span class="pcoded-mtext">Buses</span></a></li>
-                <li class="nav-item" [routerLinkActive]="['active']"><a [routerLink]="['/trips']" class="nav-link "><span class="pcoded-micon"><i class="fas fa-road"></i></span><span class="pcoded-mtext">Trips</span></a></li>
-                <li class="nav-item" [routerLinkActive]="['active']"><a [routerLink]="['/profile']" class="nav-link "><span class="pcoded-micon"><i class="fas fa-user"></i></span><span class="pcoded-mtext">Profile</span></a></li>
-			</ul>
-		</div>
-	</div>
+    <app-sidebar></app-sidebar>
 </nav>
 
 <header class="navbar pcoded-header navbar-expand-lg navbar-light headerpos-fixed header-blue">
@@ -56,11 +42,8 @@
         </ul>
     </div>
 </header>
+
 <div class="pcoded-main-container">
     <router-outlet></router-outlet>
 </div>
-<footer id="sticky-footer" style="flex-shrink: none; "class="py-4 bg-primary text-white-50">
-    <div class="container text-center">
-        <small>Copyright &copy; Akbar Al Zaini</small>
-    </div>
-</footer>
+<app-footer></app-footer>

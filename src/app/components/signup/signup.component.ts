@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../_services/auth.service';
-import { TokenStorageService } from '../_services/token-storage.service';
+import { AuthService } from '../../_services/auth.service';
+import { TokenStorageService } from '../../_services/token-storage.service';
 
 @Component({
   selector: 'app-signup',
@@ -31,8 +31,7 @@ export class SignupComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        console.log(data.id);
-        this.registerAgency(data.id,agency, details);
+        this.registerAgency(agency, details);
       },
       err => {
         this.errorMessage = err.error.message;
@@ -41,8 +40,8 @@ export class SignupComponent implements OnInit {
     );
   }
 
-  registerAgency(user_id:number, name:string, details: string):void{
-    this.authService.registerAgency(user_id,name,details,"A-"+name).subscribe(
+  registerAgency( name:string, details: string):void{
+    this.authService.registerAgency(name,details,"A-"+name).subscribe(
       data =>{
         console.log(data);
         this.isSuccessful = true;

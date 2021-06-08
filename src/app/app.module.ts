@@ -8,7 +8,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './content/dashboard/dashboard.component';
+import { AgencyComponent } from './content/agency/agency.component';
+import { BusesComponent } from './content/buses/buses.component';
+import { TripsComponent } from './content/trips/trips.component';
+import { ProfileComponent } from './content/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginComponent,
     SignupComponent,
     SidebarComponent,
-    DashboardComponent
+    DashboardComponent,
+    AgencyComponent,
+    BusesComponent,
+    TripsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

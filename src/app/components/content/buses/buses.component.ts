@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BusesService } from "../../../_services/buses.service";
+
 
 @Component({
   selector: 'app-buses',
@@ -6,10 +8,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buses.component.css']
 })
 export class BusesComponent implements OnInit {
+  content?: Array<any>;
+  public buses : any = {};
 
-  constructor() { }
+  constructor(private busesService : BusesService) { 
+    
+  }
 
   ngOnInit(): void {
+    this.busesService.getAll().subscribe(
+      data => {
+        this.content = data;
+      },
+      err =>{
+        this.content = JSON.parse(err.error).message;
+      }
+    )
   }
+
+  public submit():void {
+    this.busesService.createBus(this.buses).subscribe(
+      data =>{
+        this.reloadPage();
+      },
+      err=>{
+      } 
+    );
+  }
+
+  reloadPage(): void {
+    window.location.reload();
+  }
+
 
 }

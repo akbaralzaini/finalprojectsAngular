@@ -1,28 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { TokenStorageService } from "../_services/token-storage.service";
 
-const API_URL = 'http://localhost:8080/api/test/';
+
+const API_URL = 'http://localhost:8080/api/v1/user/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService) { }
 
-  getPublicContent(): Observable<any> {
-    return this.http.get(API_URL + 'all', { responseType: 'text' });
+  public httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'Bearer '+ this.tokenStorage.getToken()
+    })
+  };
+
+  getUserData(): Observable<any> {
+    return this.http.get(API_URL, this.httpOptions);
   }
 
-  getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'user', { responseType: 'text' });
+  updateData(data:any): Observable<any>{
+    return this.http.put(API_URL,data,this.httpOptions);
   }
 
-  getModeratorBoard(): Observable<any> {
-    return this.http.get(API_URL + 'mod', { responseType: 'text' });
-  }
-
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
+  updatePassword(data:any): Observable<any>{
+    return this.http.put(API_URL+'password',data,this.httpOptions);
   }
 }

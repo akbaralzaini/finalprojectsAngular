@@ -14,7 +14,7 @@ import { TemplatesComponent } from './components/templates/templates.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: '', component: TemplatesComponent,
+  { path: 'main', component: TemplatesComponent,
     children:[
       {
         path: "dashboard",
@@ -38,7 +38,7 @@ const routes: Routes = [
       },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' } 
     ]
-  },
+  },{ path: '', redirectTo: 'main', pathMatch: 'full' }
 ];
 
 @NgModule({

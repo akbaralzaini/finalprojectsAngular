@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TripsService } from "../../../_services/trips.service";
+import { BusesService } from "../../../_services/buses.service";
+import { StopService } from "../../../_services/stop.service";
 
 @Component({
   selector: 'app-trips',
@@ -6,10 +9,57 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trips.component.css']
 })
 export class TripsComponent implements OnInit {
+  public trips : any = {};
+  content?: Array<any>;
+  public bus : Array<any>;
+  public stop : Array<any>;
 
-  constructor() { }
+  constructor(private tripService : TripsService,
+    private busService: BusesService,
+    private stopService: StopService) { }
 
   ngOnInit(): void {
+    this.tripService.getAll().subscribe(
+      data => {
+        this.content = data;
+      },
+      err =>{
+        this.content = JSON.parse(err.error).message;
+      }
+    );
+    
+    this.busService.getAll().subscribe(
+      data => {
+        this.bus = data;
+      },
+      err =>{
+        this.content = JSON.parse(err.error).message;
+      }
+    );
+
+    this.stopService.getAll().subscribe(
+      data => {
+        this.stop = data;
+      },
+      err =>{
+        this.content = JSON.parse(err.error).message;
+      }
+    );
+
+  }
+
+  public submit():void {
+    this.tripService.createTrip(this.trips).subscribe(
+      data =>{
+        this.reloadPage();
+      },
+      err=>{
+      } 
+    );
+  }
+
+  reloadPage(): void {
+    window.location.reload();
   }
 
 }

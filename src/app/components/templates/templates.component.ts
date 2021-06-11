@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from '../../_services/token-storage.service';
+import {Router} from "@angular/router"
+
 
 @Component({
   selector: 'app-templates',
@@ -6,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplatesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tokenStorage: TokenStorageService,private router: Router) {
+    if (this.tokenStorage.getToken() == null) {
+      this.router.navigate(['/login']);
+    }
+  }
 
   ngOnInit(): void {
   }
 
+  public logout():void {
+    this.tokenStorage.signOut();
+    window.location.reload();
+  } 
 }

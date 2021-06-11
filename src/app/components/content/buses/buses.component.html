@@ -4,23 +4,23 @@
             <div class="row align-items-center">
                 <div class="col-md-12">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">Bootstrap Basic Tables</h5>
+                        <h5 class="m-b-10">Bus Detail</h5>
                     </div>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-                        <li class="breadcrumb-item"><a href="#!">Bootstrap Table</a></li>
-                        <li class="breadcrumb-item"><a href="#!">Basic Tables</a></li>
+                        <li class="breadcrumb-item"><a ><i class="feather icon-home"></i></a></li>
+                        <li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a>Buses</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5>Basic Table</h5>
-                    <span class="d-block m-t-5">use class <code>table</code> inside table element</span>
+                    <h5>Buses</h5>
+                    <span class="d-block m-t-5">Agency owned buses</span>
                 </div>
                 <div class="card-body table-border-style">
                     <div class="table-responsive">
@@ -28,29 +28,15 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Username</th>
+                                    <th>Bus Code</th>
+                                    <th>Capacity</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
+                                <tr *ngFor="let item of content; let i=index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{item.code}}</td>
+                                    <td>{{item.capacity}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -58,44 +44,29 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <h5>Inverse Table</h5>
-                    <span class="d-block m-t-5">use class <code>table-inverse</code> inside table element</span>
+                    <h5>Add new Bus</h5>
+                    <span class="d-block m-t-5">enter details</span>
                 </div>
-                <div class="card-body table-border-style">
-                    <div class="table-responsive">
-                        <table class="table table-inverse">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Username</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Bus Code</label>
+                                <input type="text" class="form-control" [(ngModel)]="buses.code" placeholder="bus code">
+                            </div>
+                            <div class="form-group">
+                                <label>Capcity</label>
+                                <input type="number" class="form-control" [(ngModel)]="buses.capacity" placeholder="capacity">
+                            </div>
+                            <div class="form-group">
+                                <label>Make/Model</label>
+                                <input type="text" class="form-control" [(ngModel)]="buses.make" placeholder="model">
+                            </div>
+                            <button type="submit" (click)="submit()" class="btn btn-primary">Add Bus</button>
+                        </div>
                     </div>
                 </div>
             </div>

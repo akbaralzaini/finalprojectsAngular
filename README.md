@@ -1,3 +1,37 @@
+# Project Name
+> Bus Angular
+
+## General info
+The user interface for the admin portal is designed using material design with the help of AngularJS web app concept. The UI is server side rendered using AngularJS.
+
+## Screenshots
+Login page
+![Example screenshot](./img/Screenshot1.png)
+
+Login page
+![Example screenshot](./img/Screenshot2.png)
+
+Signup page
+![Example screenshot](./img/Screenshot3.png)
+
+Agency page
+![Example screenshot](./img/Screenshot4.png)
+
+edit Agency page
+![Example screenshot](./img/Screenshot5.png)
+
+Bus page
+![Example screenshot](./img/Screenshot6.png)
+
+Trips page
+![Example screenshot](./img/Screenshot7.png)
+![Example screenshot](./img/Screenshot8.png)
+
+Profile page
+![Example screenshot](./img/Screenshot9.png)
+
+
+
 # FinalProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.

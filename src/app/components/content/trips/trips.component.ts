@@ -19,6 +19,7 @@ export class TripsComponent implements OnInit {
     private stopService: StopService) { }
 
   ngOnInit(): void {
+    this.trips = {}
     this.tripService.getAll().subscribe(
       data => {
         this.content = data;
@@ -49,14 +50,42 @@ export class TripsComponent implements OnInit {
   }
 
   public submit():void {
-    this.tripService.createTrip(this.trips).subscribe(
-      data =>{
-        alert("data berhasil dirubah");
-        this.ngOnInit();
-      },
-      err=>{
-        alert("data gagal di tampilkan");
-      } 
-    );
+    if(this.validate()){
+      this.tripService.createTrip(this.trips).subscribe(
+        data =>{
+          this.ngOnInit();
+          alert("data berhasil ditambahkan");
+        },
+        err=>{
+          alert("data gagal di tampilkan");
+        } 
+      );
+    }
+  }
+
+  public validate():boolean{
+    let status: boolean= true;
+    if (typeof(this.trips.busId) === "undefined") {
+      alert("BUS code is balank");
+      status = false;
+      return false;
+    }else if (typeof(this.trips.sourceStopId) === "undefined") {
+      alert("source Stop is balank");
+      status = false;
+      return false;
+    }else if (typeof(this.trips.destStopId) === "undefined") {
+      alert("Destination Stop is balank");
+      status = false;
+      return false;
+    }else if (typeof(this.trips.journeyTime) === "undefined") {
+      alert("Trip Duration is balank");
+      status = false;
+      return false;
+    }else if (typeof(this.trips.fare) === "undefined") {
+      alert("fare is balank");
+      status = false;
+      return false;
+    }
+    return status;
   }
 }

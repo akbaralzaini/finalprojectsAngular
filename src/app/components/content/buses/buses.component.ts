@@ -29,16 +29,13 @@ export class BusesComponent implements OnInit {
   public submit():void {
     this.busesService.createBus(this.buses).subscribe(
       data =>{
-        this.reloadPage();
+        alert("data berhasil ditambahkan");
+        this.ngOnInit();
       },
       err=>{
+        this.content = JSON.parse(err.error).message;
       } 
     );
   }
-
-  reloadPage(): void {
-    window.location.reload();
-  }
-
 
 }

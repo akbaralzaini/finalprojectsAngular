@@ -36,6 +36,7 @@ export class AgencyComponent implements OnInit {
       data => {
         this.content = data;
         this._editModel = data;
+        alert("data berhasil dirubah");
         this.reloadPage();
       },
       err =>{

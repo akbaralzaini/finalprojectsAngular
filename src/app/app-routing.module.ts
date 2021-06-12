@@ -8,6 +8,7 @@ import { BusesComponent } from './components/content/buses/buses.component';
 import { TripsComponent } from './components/content/trips/trips.component';
 import { ProfileComponent } from './components/content/profile/profile.component';
 import { TemplatesComponent } from './components/templates/templates.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 
@@ -38,7 +39,9 @@ const routes: Routes = [
       },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' } 
     ]
-  },{ path: '', redirectTo: 'main', pathMatch: 'full' }
+  },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: '**', component   : ErrorPageComponent },
 ];
 
 @NgModule({

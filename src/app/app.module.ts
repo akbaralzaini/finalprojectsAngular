@@ -16,6 +16,7 @@ import { ProfileComponent } from './components/content/profile/profile.component
 import { TemplatesComponent } from './components/templates/templates.component';
 import { FooterComponent } from './components/templates/footer/footer.component';
 import { NavigationComponent } from './components/templates/navigation/navigation.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NavigationComponent } from './components/templates/navigation/navigatio
     ProfileComponent,
     TemplatesComponent,
     FooterComponent,
-    NavigationComponent
+    NavigationComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

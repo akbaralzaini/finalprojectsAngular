@@ -51,15 +51,12 @@ export class TripsComponent implements OnInit {
   public submit():void {
     this.tripService.createTrip(this.trips).subscribe(
       data =>{
-        this.reloadPage();
+        alert("data berhasil dirubah");
+        this.ngOnInit();
       },
       err=>{
+        alert("data gagal di tampilkan");
       } 
     );
   }
-
-  reloadPage(): void {
-    window.location.reload();
-  }
-
 }
